@@ -10,3 +10,9 @@ module.exports = {
     indexMorse: indexMorse,
     removeMorseTwo: removeMorseTwo
 };
+
+if (process.argv[4]){
+    removeMorseTwo(process.argv[2], process.argv[3], process.argv[4]);
+} else if (process.argv[3]) {
+    removeMorse(process.argv[2], process.argv[3]);
+}
