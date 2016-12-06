@@ -2,16 +2,15 @@
 var self = {
 
     removeMorse:function(givenString, removeString) {
+        //Main Function
         if (givenString === '') return 0;
         var indexMatrix = self.indexMorse(givenString, removeString);
         var deletionPaths = self.computeDeletionPaths(indexMatrix,[],[], -1, indexMatrix.length);
         var uniqueResults = self.calculateUnique(givenString, deletionPaths);
-        console.log(uniqueResults.length);
         return uniqueResults.length;
     },
 
     computeDeletionPaths: function (indexMatrix, paths, currentPath, currentIndex, originalLength) {
-
         if (currentPath.length === originalLength) {
             paths.push(currentPath);
             return;
@@ -44,6 +43,7 @@ var self = {
     },
 
     indexMorse: function(given, remove) {
+        //Returns an
         var IndexDictionary = self.getMorseObject(given);
         var givenStringMap = [];
         for (var i = 0; i<remove.length; i++) {
@@ -53,6 +53,7 @@ var self = {
     },
 
     getMorseObject: function(string) {
+        //This gets an object with the indices of the all of the 3 different morse symbols
         var IndexObject = {
             '*': [],
             '-':[],
